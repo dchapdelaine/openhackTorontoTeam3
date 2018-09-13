@@ -16,7 +16,7 @@ namespace Company.Function
     {
         [FunctionName("GetRatings")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "ratings/{id}")]HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "GetRatings/{id}")]HttpRequest req,
              [CosmosDB(
                 databaseName: "openhack",
                 collectionName: "ratings",
