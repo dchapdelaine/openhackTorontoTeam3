@@ -13,7 +13,7 @@ namespace Company.Function
     public static class HttpTriggerCSharp
     {
         [FunctionName("HttpTriggerCSharp")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequest req, ILogger log)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]HttpRequest req, ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
@@ -28,7 +28,7 @@ namespace Company.Function
             string requestBody = new StreamReader(req.Body).ReadToEnd();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
 
-            return (ActionResult)new OkObjectResult($"Your product is {productName}");
+            return (ActionResult)new OkObjectResult($"The product name for your product id {productId} is {productName} and the description is This starfruit ice cream is out of this world");
         }
     }
 }
